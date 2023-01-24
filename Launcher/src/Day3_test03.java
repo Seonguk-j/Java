@@ -1,0 +1,10 @@
+
+public class Day3_test03 {
+
+	public static void main(String[] args) {
+		String a = "Hello Java";
+		System.out.println(a.indexOf("JavA"));
+		System.out.println(a.contains("Java"));
+	}
+
+}

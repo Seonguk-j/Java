@@ -1,0 +1,57 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Day2_test10 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		Random random = new Random();
+		int computerChoice = Math.abs(random.nextInt()%3) + 1;
+		int myChoice = scanner.nextInt();
+		
+		System.out.println("나의 입력 : " + myChoice);
+		System.out.println("컴퓨터 입력 : " + computerChoice);
+		System.out.print("결과 : ");
+		if(computerChoice == 1) {
+			switch(myChoice) {
+				case 1 :
+					System.out.println("무승부");
+					break;
+				case 2 :
+					System.out.println("승리");
+					break;
+				case 3 :
+					System.out.println("패배");
+					break;
+			}
+		}
+		else if(computerChoice == 2) {
+			switch(myChoice) {
+			case 1 :
+				System.out.println("패배");
+				break;
+			case 2 :
+				System.out.println("무승부");
+				break;
+			case 3 :
+				System.out.println("승리");
+				break;
+		}
+		}
+			else {
+				switch(myChoice) {
+				case 1 :
+					System.out.println("승리");
+					break;
+				case 2 :
+					System.out.println("패배");
+					break;
+				case 3 :
+					System.out.println("무승부");
+					break;
+			}
+		
+		}	
+
+}
+}

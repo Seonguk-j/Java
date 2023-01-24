@@ -1,0 +1,25 @@
+
+public class Day2_test02 {
+
+	public static void main(String[] args) {
+		int choice = 3;
+		
+		int a = 1;
+		int b = 2;
+		int c = 3;
+		
+		if(choice == a) {
+			System.out.println("AAAA");
+		}
+		else if(choice == b) {
+			System.out.println("BBBB");
+		}
+		else if(choice ==c) {
+			System.out.println("CCCC");
+		}
+		else {
+			System.out.println("ELSE");
+		}
+	}
+
+}

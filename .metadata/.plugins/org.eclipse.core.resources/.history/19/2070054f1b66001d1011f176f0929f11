@@ -1,0 +1,98 @@
+package beakjoon_algorism_greedy;
+
+import java.io.*;
+import java.util.*;
+
+public class Problem_01461 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int step = 0;
+		ArrayList<Integer> minus = new ArrayList<Integer>(), plus = new ArrayList<Integer>();
+
+		st = new StringTokenizer(br.readLine());
+		for(int i = 0; i < N; i++) {
+			int distance = Integer.parseInt(st.nextToken());
+			if(distance < 0) {
+				distance = - distance;
+				minus.add(distance);
+			}
+			else {
+				plus.add(distance);
+			}
+		}
+		Collections.sort(minus);
+		Collections.sort(plus);
+		
+		if(plus.size() != 0 && minus.size() != 0) {
+			if(plus.get(plus.size() - 1) < minus.get(minus.size() - 1)) {
+				if(plus.size() % M != 0) {
+					step += 2 * plus.get(plus.size() % M);
+				}
+				for(int i = 1; i < plus.size() / M; i++) {
+					step += 2 * plus.get(i * M + plus.size() % M);
+					System.out.println(step);
+				}
+				if(minus.size() % M != 0) {
+					step += 2 * minus.get(minus.size() % M);
+				}
+				for(int i = 1; i < minus.size() / M - 1; i++) {
+					step += 2 * minus.get(i * M + minus.size() % M);
+					System.out.println(step);
+
+				}
+				step += minus.get(minus.size() - 1);
+			}
+			else {
+				if(minus.size() % M != 0) {
+					step += 2 * minus.get(minus.size() % M);
+				}
+				for(int i = 1; i < minus.size() / M; i++) {
+					step += 2 * minus.get(i * M + minus.size() % M);
+					System.out.println(step);
+
+				}
+				if(plus.size() % M != 0) {
+					step += 2 * plus.get(plus.size() % M);
+				}
+				for(int i = 1; i < plus.size() / M - 1; i++) {
+					step += 2 * plus.get(i * M + plus.size() % M);
+					System.out.println(step);
+
+				}
+				step += plus.get(plus.size() - 1);
+			}
+		}
+		
+		else if(plus.size() != 0) {
+			if(plus.size() % M != 0) {
+				step += 2 * plus.get(plus.size() % M);
+			}
+			for(int i = 1; i < plus.size() / M - 1; i++) {
+				step += 2 * plus.get(i * M + plus.size() % M);
+				System.out.println(step);
+
+			}
+			step += plus.get(plus.size() - 1);
+		}
+		
+		else {
+			if(minus.size() % M != 0) {
+				step += 2 * minus.get(minus.size() % M);
+			}
+			for(int i = 1; i < minus.size() / M - 1; i++) {
+				step += 2 * minus.get(i * M + minus.size() % M);
+				System.out.println(step);
+
+			}
+			step += minus.get(minus.size() - 1);
+		}
+		
+		System.out.println(step);
+	}
+
+}

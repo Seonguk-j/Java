@@ -1,0 +1,37 @@
+package beakjoon_algorism_greedy;
+
+import java.io.*;
+import java.util.*;
+
+public class Problem_01461 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int mMax = 0, mMin = 0, pMax = 0, pMin = 0;
+		ArrayList<Integer> minus = new ArrayList<Integer>(), plus = new ArrayList<Integer>();
+
+		st = new StringTokenizer(br.readLine());
+		for(int i = 0; i < N; i++) {
+			int distance = Integer.parseInt(st.nextToken());
+			if(distance < 0) {
+				distance = - distance;
+				minus.add(distance);
+				mMax = Math.max(mMax, distance);
+				mMin = Math.min(mMin, distance);
+			}
+			else {
+				plus.add(distance);
+				pMax = Math.max(pMax, distance);
+				pMin = Math.min(pMin, distance);
+			}
+		}
+		Collections.sort(minus);
+		Collections.sort(plus);
+		System.out.println(minus.get(0));
+	}
+
+}

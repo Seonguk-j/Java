@@ -1,0 +1,9 @@
+
+public class Day4_test06 {
+
+	public static void main(String[] args) {
+		int arr[] = {5, 10, 23, 1, 22};
+		System.out.println(arr);
+	}
+
+}
